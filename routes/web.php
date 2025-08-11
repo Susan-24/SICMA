@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ConvocatoriaController;
 use App\Http\Controllers\RequisitoController;
+use App\Http\Controllers\TipoActividadController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,7 +22,14 @@ Route::middleware('auth')->group(function () {
 Route::post('/convocatorias', [ConvocatoriaController::class, 'store'])->name('convocatorias.store');
 Route::get('/convocatorias', [ConvocatoriaController::class, 'index'])->name('convocatorias.index');
 Route::resource('requisitos', RequisitoController::class);
-
+Route::get('/actividad/create', [TipoActividadController::class, 'create'])->name('actividad.create');
+Route::post('/actividad', [TipoActividadController::class, 'store'])->name('actividad.store');
+Route::view('/postulaciones', 'postulaciones.index');
+Route::view('/evaluacion', 'evaluacion.index');
+Route::view('/evaluacion/detalle', 'evaluacion.detalle');
+Route::view('/resultadofinal', 'resultadofinal.index');
+Route::view('/evaluadores', 'evaluadores.index');
+Route::view('/jurado', 'jurado.index');
 });
 
 

@@ -27,7 +27,7 @@
             <tr>
                 <td>{{ $convocatoria->id_convocatoria }}</td>
                 <td>{{ $convocatoria->nombre }}</td>
-                <td>{{ $convocatoria->tipo_movilidad ?? 'N/A' }}</td>
+                <td>{{ $convocatoria->tipoActividad ? $convocatoria->tipoActividad->nombre_actividad : 'N/A' }}</td>
                 <td>{{ $convocatoria->fecha_inicio }}</td>
                 <td>{{ $convocatoria->fecha_fin }}</td>
                 <td>{{ $convocatoria->estado ?? 'Pendiente' }}</td>

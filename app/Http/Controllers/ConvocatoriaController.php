@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\ConvocatoriaDocumento;
 use App\Models\Convocatoria;
+use App\Models\TipoActividad;
 use Illuminate\Http\Request;
 
 class ConvocatoriaController extends Controller
@@ -25,7 +26,8 @@ class ConvocatoriaController extends Controller
      */
     public function create()
     {
-        return view('convocatorias.create');
+        $tiposActividad = TipoActividad::all();
+      return view('convocatorias.create', compact('tiposActividad'));
     }
 
     /**
@@ -43,19 +45,17 @@ class ConvocatoriaController extends Controller
             // Aquí agrega otros campos que necesites
         ]);
 
-        // Crear convocatoria
-        $convocatoria = Convocatoria::create([
-            'nombre' => $data['nombre'],
-            'bases' => $data['requisitos'] ?? null,
-            'estado' => 'publicada', // o según lógica
-            'fecha_inicio' => $data['fecha_inicio'],
-            'fecha_fin' => $data['fecha_fin'],
-            // Agrega otros campos
-            'id_usuario' => auth()->id(), // Asumiendo usuario autenticado
-            'resolucion' => null, // por ahora
-            'id_tipo_actividad' => null, // según tu lógica
-            'id_postulante' => null, // o nullable
-        ]);
+    $convocatoria = Convocatoria::create([
+        'nombre' => $data['nombre'],
+        'bases' => $data['requisitos'] ?? null,
+        'estado' => 'publicada',
+        'fecha_inicio' => $data['fecha_inicio'],
+        'fecha_fin' => $data['fecha_fin'],
+        'id_usuario' => auth()->id(),
+        'resolucion' => null,
+        'id_tipo_actividad' => $data['id_tipo_actividad'],
+        'id_postulante' => null,
+    ]);
 
         if ($request->hasFile('documentos')) {
             foreach ($request->file('documentos') as $tipo => $archivos) {
@@ -79,8 +79,10 @@ class ConvocatoriaController extends Controller
             }
         }
 
-        return redirect()->route('convocatorias.create')->with('success', 'Convocatoria creada correctamente.');
-    }
+    return redirect()->route('convocatorias.create')->with('success', 'Convocatoria creada correctamente.');
+}
+
+
 
     /**
      * Display the specified resource.

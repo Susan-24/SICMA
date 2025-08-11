@@ -29,17 +29,17 @@
         <label for="nombre">Descripcion</label>
         <input type="text" name="nombre" class="form-control" value="{{ old('nombre') }}" required>
     </div>
-
     <div class="form-group">
-        <label for="tipo_movilidad">Tipo de Movilidad</label>
-        <select name="tipo_movilidad" class="form-control" required>
-            <option value="">-- Seleccione --</option>
-            <option value="Intercambio" {{ old('tipo_movilidad')=='Intercambio' ? 'selected' : '' }}>Intercambio
+    <label for="id_tipo_actividad">Tipo de Actividad</label>
+    <select name="id_tipo_actividad" class="form-control" required>
+        <option value="">-- Seleccione --</option>
+        @foreach ($tiposActividad as $tipo)
+            <option value="{{ $tipo->id_actividad }}" {{ old('id_tipo_actividad') == $tipo->id_actividad ? 'selected' : '' }}>
+                {{ $tipo->nombre_actividad }}
             </option>
-            <option value="Estancia/Pasantía" {{ old('tipo_movilidad')=='Estancia/Pasantía' ? 'selected' : '' }}>
-                Estancia/Pasantía</option>
-        </select>
-    </div>
+        @endforeach
+    </select>
+</div>
 
     <div class="form-group">
         <label for="fecha_inicio">Fecha Inicio</label>
@@ -52,11 +52,6 @@
     </div>
 
     <div class="form-group">
-        <label for="requisitos">Requisitos</label>
-        <textarea name="requisitos" class="form-control">{{ old('requisitos') }}</textarea>
-    </div>
-
-    <div class="form-group">
         <label for="bases">Bases (PDF)</label>
         <input type="file" name="documentos[bases]" class="form-control" accept=".pdf">
     </div>
@@ -65,11 +60,13 @@
         <label for="resolucion">Reglamento (PDF)</label>
         <input type="file" name="documentos[resolucion]" class="form-control" accept=".pdf">
     </div>
-
     <div class="form-group">
-        <label for="anexos">Anexos (PDF o imágenes)</label>
-        <input type="file" name="documentos[anexos][]" multiple class="form-control" accept=".pdf,image/*">
-    </div>
+    <label for="anexos">Subir Anexo (PDF o Word)</label>
+    <input type="file" name="documentos[anexos]" id="anexos" 
+           accept=".pdf,.doc,.docx" 
+           class="form-control" required>
+</div>
+
 
     <button type="submit" class="btn btn-primary">Guardar Convocatoria</button>
 </form>

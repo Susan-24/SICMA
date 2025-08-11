@@ -38,8 +38,9 @@ class Convocatoria extends Model
 
     public function tipoActividad()
     {
-        return $this->belongsTo(TipoActividad::class, 'id_tipo_actividad', 'id_actividad');
+       return $this->belongsTo(TipoActividad::class, 'id_tipo_actividad', 'id_actividad');
     }
+
     public function requisitos()
     {
          return $this->hasMany(Requisito::class, 'id_convocatoria', 'id_convocatoria');
