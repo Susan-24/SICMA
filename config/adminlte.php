@@ -299,111 +299,157 @@ return [
     */
 
     'menu' => [
-        // Navbar items:
-        [
-            'type' => 'navbar-search',
-            'text' => 'search',
-            'topnav_right' => true,
-        ],
-        [
-            'type' => 'fullscreen-widget',
-            'topnav_right' => true,
-        ],
-
-        // Sidebar items:
-        [
-            'type' => 'sidebar-menu-search',
-            'text' => 'search',
-        ],
-        [
-            'text' => 'blog',
-            'url' => 'admin/blog',
-            'can' => 'manage-blog',
-        ],
-        [
-            'text' => 'inicio',
-            'url' => 'admin/pages',
-            'icon' => 'fa fa-home',
-            'label' => 4,
-            'label_color' => 'success',
-        ],
-        ['header' => 'Gestion de convocatorias'],
-        [
-            'text' => 'Registrar convocatoria',
-            'url' => 'convocatorias',
-            'icon' => 'fa fa-plus',
-        ],
-        [
-            'text' => 'Requisitos',
-            'url' => 'requisitos',
-            'icon' => 'fa fa-file',
-        ],
-         ['header' => 'Gestion de postulaciones'],
-        [
-            'text' => 'Postulaciones',
-            'url' => 'convocatorias',
-            'icon' => 'fa fa-plus',
-        ],
-        [
-            'text' => 'Requisitos',
-            'url' => 'requisitos',
-            'icon' => 'fa fa-file',
-        ],
-        ['header' => 'Evaluacion y seleccion'],
-        [
-            'text' => 'Postulaciones',
-            'url' => 'convocatorias',
-            'icon' => 'fa fa-plus',
-        ],
-        [
-            'text' => 'Resultado final',
-            'url' => 'requisitos',
-            'icon' => 'fa fa-file',
-        ],
-         ['header' => 'Gestion de convenios'],
-        [
-            'text' => 'Nuevo convenio',
-            'url' => 'convocatorias',
-            'icon' => 'fa fa-plus',
-        ],
-        [
-            'text' => 'Registro de entidades',
-            'url' => 'requisitos',
-            'icon' => 'fa fa-file',
-        ],
-         [
-            'text' => 'Registro de compromisos',
-            'url' => 'requisitos',
-            'icon' => 'fa fa-file',
-        ],
-         ['header' => 'Gestion de usuarios'],
-        [
-            'text' => 'Postulaciones',
-            'url' => 'convocatorias',
-            'icon' => 'fa fa-plus',
-        ],
-        [
-            'text' => 'Requisitos',
-            'url' => 'requisitos',
-            'icon' => 'fa fa-file',
-        ],
-        ['header' => 'labels'],
-        [
-            'text' => 'important',
-            'icon_color' => 'red',
-            'url' => '#',
-        ],
-        [
-            'text' => 'warning',
-            'icon_color' => 'yellow',
-            'url' => '#',
-        ],
-        [
-            'text' => 'information',
-            'icon_color' => 'cyan',
-            'url' => '#',
-        ],
+    // Navbar items
+    [
+        'type' => 'navbar-search',
+        'text' => 'search',
+        'topnav_right' => true,
+        'can' => 'menu-admin',
     ],
+    [
+        'type' => 'fullscreen-widget',
+        'topnav_right' => true,
+        'can' => 'menu-admin',
+    ],
+
+    // Sidebar items
+    [
+        'type' => 'sidebar-menu-search',
+        'text' => 'search',
+        'can' => 'menu-admin',
+    ],
+    [
+        'text' => 'blog',
+        'url' => 'admin/blog',
+        'can' => 'menu-admin',
+    ],
+    [
+        'text' => 'inicio',
+        'url' => 'admin/pages',
+        'icon' => 'fa fa-home',
+        'label' => 4,
+        'label_color' => 'success',
+        'can' => 'menu-admin',
+    ],
+
+    ['header' => 'Gestion de convocatorias', 'can' => 'menu-admin'],
+    [
+        'text' => 'Registrar convocatoria',
+        'url' => 'convocatorias',
+        'icon' => 'fa fa-plus',
+        'can' => 'menu-admin',
+    ],
+    [
+        'text' => 'Requisitos',
+        'url' => 'requisitos',
+        'icon' => 'fa fa-file',
+        'can' => 'menu-admin',
+    ],
+
+    ['header' => 'Gestion de postulaciones', 'can' => 'menu-admin'],
+    [
+        'text' => 'Postulaciones',
+        'url' => 'convocatorias',
+        'icon' => 'fa fa-plus',
+        'can' => 'menu-admin',
+    ],
+    [
+        'text' => 'Requisitos',
+        'url' => 'requisitos',
+        'icon' => 'fa fa-file',
+        'can' => 'menu-admin',
+    ],
+
+    ['header' => 'Evaluacion y seleccion', 'can' => 'menu-admin'],
+    [
+        'text' => 'Postulaciones',
+        'url' => 'convocatorias',
+        'icon' => 'fa fa-plus',
+        'can' => 'menu-admin',
+    ],
+    [
+        'text' => 'Resultado final',
+        'url' => 'requisitos',
+        'icon' => 'fa fa-file',
+        'can' => 'menu-admin',
+    ],
+
+    ['header' => 'Gestion de convenios', 'can' => 'menu-admin'],
+    [
+        'text' => 'Nuevo convenio',
+        'url' => 'convocatorias',
+        'icon' => 'fa fa-plus',
+        'can' => 'menu-admin',
+    ],
+    [
+        'text' => 'Registro de entidades',
+        'url' => 'requisitos',
+        'icon' => 'fa fa-file',
+        'can' => 'menu-admin',
+    ],
+    [
+        'text' => 'Registro de compromisos',
+        'url' => 'requisitos',
+        'icon' => 'fa fa-file',
+        'can' => 'menu-admin',
+    ],
+
+    ['header' => 'Gestion de usuarios', 'can' => 'menu-admin'],
+    [
+        'text' => 'Postulaciones',
+        'url' => 'convocatorias',
+        'icon' => 'fa fa-plus',
+        'can' => 'menu-admin',
+    ],
+    [
+        'text' => 'Requisitos',
+        'url' => 'requisitos',
+        'icon' => 'fa fa-file',
+        'can' => 'menu-admin',
+    ],
+
+    ['header' => 'labels', 'can' => 'menu-admin'],
+    [
+        'text' => 'important',
+        'icon_color' => 'red',
+        'url' => '#',
+        'can' => 'menu-admin',
+    ],
+    [
+        'text' => 'warning',
+        'icon_color' => 'yellow',
+        'url' => '#',
+        'can' => 'menu-admin',
+    ],
+    [
+        'text' => 'information',
+        'icon_color' => 'cyan',
+        'url' => '#',
+        'can' => 'menu-admin',
+    ],
+
+    // 📌 Menú para Estudiante
+    ['header' => 'Área del Estudiante', 'can' => 'menu-estudiante'],
+    [
+        'text' => 'Convocatorias',
+        'url' => 'convocatorias',
+        'icon' => 'fa fa-book',
+        'can' => 'menu-estudiante',
+    ],
+    [
+        'text' => 'Mis postulaciones',
+        'url' => 'mis-postulaciones',
+        'icon' => 'fa fa-file-alt',
+        'can' => 'menu-estudiante',
+    ],
+    [
+        'text' => 'Perfil',
+        'url' => 'perfil',
+        'icon' => 'fa fa-user',
+        'can' => 'menu-estudiante',
+    ],
+],
+
 
     /*
     |--------------------------------------------------------------------------
