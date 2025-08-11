@@ -15,8 +15,8 @@ class ConvocatoriaController extends Controller
     {
         $convocatorias = Convocatoria::all();
 
-        if (auth()->user()->hasRole('Admin')) {
-            return view('admin.convocatorias.index', compact('convocatorias'));
+        if (auth()->user()->hasRole('admin')) {
+            return view('convocatorias.index', compact('convocatorias'));
         } else {
             return view('estudiantes.index', compact('convocatorias'));
         }
