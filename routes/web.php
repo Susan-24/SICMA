@@ -24,4 +24,11 @@ Route::resource('requisitos', RequisitoController::class);
 
 });
 
+
+
+// Formulario de postulación
+Route::get('/postular', function () {
+    return view('estudiantes.postular');
+});
+
 require __DIR__.'/auth.php';

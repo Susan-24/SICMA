@@ -27,7 +27,7 @@
                             <a class="btn btn-outline-warning btn-sm">Anexos</a>
                         </div>
 
-                        <a class="btn btn-primary">Postular</a>
+                        <a href="{{ url('/postular') }}" class="btn btn-primary">Postular</a>
                     </div>
                 </div>
             </div>
